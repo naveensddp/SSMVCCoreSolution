@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"]</title>
+  <link href="~/css/Site.css" rel="stylesheet" />
+  <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body>
+  <partial name="_NavBarLayout" />
+  <div class="dataPlacement container-fluid">
+    @RenderBody()
+  </div>
+  <partial name="_FooterLayout" />
+  <script src="~/lib/jquery/dist/jquery.min.js"></script>
+  <script src="~/lib/popper.js/dist/popper.min.js"></script>
+  <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  @RenderSection("scripts", false)
+</body>
+</html>

@@ -1,0 +1,36 @@
+SSMVCCoreApp
+  bower
+    1. jquery - 3.3.1
+    2. popper.js - 1.14.4
+    3. bootstrap - 4.1.3
+    4. font-awesome - 4.7.0
+    4. jquery-validation - 1.17.0
+    5. jquery-validation.unobtrusive - 3.2.10
+
+  Packages
+    1. Install-Package WindowsAzure.Storage
+
+  Entity Framework Core Commands
+    1. Add DotNetCliToolReference in that add reference to Microsoft.EntityFrameworkCore.Tools.DotNet
+    2. Create the Entities with the Annotations, DbContext class
+    3. Add ConnectionStrings to the appsettings.json file
+    4. Add the service.AddDbContext and pass the connectionString to it and also set the Resilient Entity Framework Core SQL connections (Similar to SqlAzureExecutionStrategy in MVC5)
+    5. In the CMD
+      5.1 dotnet ef database update (This will create the database)
+      5.2 dotnet ef migrations add InitialDB -o Data\Migrations (This will create the class with the table schema)
+      5.3 dotnet ef migrations remove (This will remove the migrations)
+      5.4 dotnet ef database update (This will create the database, if the database exits then it will update the database with the latest changes)
+      5.5 dotnet ef database drop (This will drop the database)
+    
+
+
+CREATE TABLE [dbo].[Products] (
+    [ProductId]   INT             IDENTITY (1, 1) NOT NULL,
+    [ProductName] NVARCHAR (100)  NOT NULL,
+    [Description] NVARCHAR (250)  NOT NULL,
+    [Price]       DECIMAL (18, 2) NOT NULL,
+    [Category]    NVARCHAR (100)  NOT NULL,
+    [PhotoUrl]    NVARCHAR (MAX)  NULL
+);
+
+Select * from Products
